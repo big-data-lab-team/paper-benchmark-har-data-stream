@@ -359,11 +359,14 @@ The code and datasets used in this study are available on Github at
 used the release 1.0 and the DOI is \href{https://doi.org/10.5281/zenodo.4148947}{10.5281/zenodo.4148947}.
 The repository contains the source code and data we used to run the experiment, including the Makefile to compile the benchmark, the Python script
  to organize the execution and plot the results, and the
-datasets. This experiment requires the following software to run properly. \TG{make a bullet list}
-\texttt{Git} to download the repository and its submodule. \texttt{gcc} or any
-C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
-The repetitions were executed with plain Python code and the plots
-were generated using \texttt{seaborn}, \texttt{matplotlib}, and \texttt{pandas}.
+datasets. This experiment requires the following software to run properly.
+\begin{itemize}
+		\item \texttt{Git} to download the repository and its submodule.
+		\item \texttt{gcc} or any C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
+		\item \texttt{log4cpp} as a dependency of \streamdmcpp.
+		\item \texttt{Python}, \texttt{seaborn}, \texttt{matplotlib}, and
+				\texttt{pandas}, to organize the experiment and make the plots.
+\end{itemize}
 }
 
 \revision{
