@@ -67,17 +67,6 @@ available runtime that characterizes connected objects.
 Data stream classifiers were compared mostly using synthetic datasets or real
 but general-purpose ones (Electrical, CoverType, Poker), which is not
 representative of our use case. 
-\revision{
-There was also comparisons made with
-daily human activities such as cooking or cleaning~\cite{HAR_daily_1,
-HAR_daily_3, HAR_daily_2}. These studies describe how they have collected
-datasets from heterogeneous sensor networks located in appartments. Except for
-the Opportunity datasets shown in~\cite{HAR_daily_2}, the data were collected
-from sensor placed in various daily objects such as the entrance door or the
-cupboard. The Opportunity dataset have, in addition, wearable sensors placed on
-the subjects. These papers also provide a baseline F1-score with popular
-classifiers (\naivebayes, \knn, and neural network).
-}
 In addition, memory and runtime usage are rarely
 reported, with the notable exception of~\cite{StreamDM-CPP}.
 
@@ -116,6 +105,18 @@ footprint while the Hoeffding Adaptive Tree classifier is found to be the most
 accurate on most of the datasets. 
 
 \subsection{Offline and data stream classifiers for \har}
+\revision{
+In this study we focus on \har conducted from wearable sensors used for instance
+during sport activities.  Other works focus on daily human activities such as
+cooking or cleaning~\cite{HAR_daily_1, HAR_daily_3, HAR_daily_2}, mostly using
+home sensors. These studies describe how they have collected datasets from
+heterogeneous sensor networks located in appartments. Except for the Opportunity
+datasets shown in~\cite{HAR_daily_2}, the data were collected from sensor placed
+in various daily objects such as the entrance door or the cupboard. The
+Opportunity dataset have, in addition, wearable sensors placed on the subjects.
+These papers also provide a baseline F1-score with popular classifiers
+(\naivebayes, \knn, and neural network).
+}
 % offline works
 Several studies evaluated classifiers for \har in an offline (non data stream)
 setting. In particular, the work in~\cite{Janidarmian_2017} compared 293
