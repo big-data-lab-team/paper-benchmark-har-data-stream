@@ -36,6 +36,11 @@ metrics and parameters used in our benchmark.
 
 \subsection{Datasets}
 \label{sec:method-dataset}
+\revision{These datasets are amongst the most common ones.  We selected the main two
+datasets used to evaluate \har from wearable sensors.  In addition, we used the
+popular MOA stream simulator to generate three synthetic datasets with different
+properties.}
+
 \subsubsection{\banosdataset}
 %50 Hz sampling.
 %117 data per sample.
@@ -110,6 +115,11 @@ classifiers.
 \subsection{Algorithms and Implementation}
 In this section, we describe the algorithms used in the benchmark, their
 hyperparameters, and relevant implementation details. 
+\revision{We selected two of the main algorithms in the popular streamDM
+library, \naivebayes and \hoeffdingtree. In addition, we selected representative
+algorithms from the main classfification approaches: the \mondrianforest for
+tree based-learning, Micro Cluster Nearest Neighbor for cluster based-learning,
+and Feedforward Neural Network for neural network.} 
 
 \subsubsection{Mondrian forest~(\mondrianforest)~\cite{mondrian2014}}
 Each tree in a \mondrianforest recursively splits the feature space, similar to
