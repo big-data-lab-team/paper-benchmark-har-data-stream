@@ -101,8 +101,10 @@ frequent label to the window.
 \subsubsection{MOA datasets}
 Massive Online Analysis~\cite{moa} (MOA) is a Java framework to compare
 data stream classifiers. In addition to classification algorithms, MOA provides many
-tools to read and generate datasets.
-We generate three synthetic datasets\footnote{MOA commands available \href{https://github.com/azazel7/paper-benchmark/blob/e0c9a94d0d17490f7ab14293dec20b8322a6447c/Makefile\#L90}{here}.}:
+tools to read and generate
+datasets.
+We generate three synthetic datasets\footnote{MOA commands available
+\href{https://github.com/big-data-lab-team/benchmark-har-data-stream/blob/f314bf4a258e96e418e249228897d269c59cd522/Makefile\#L104}{here}.}:
 a hyperplane, a RandomRBF, and a RandomTree
 dataset. We generate 200,000 data points
  for each of these synthetic datasets.
@@ -329,7 +331,7 @@ counts, we compute the F1 score every 50 elements. We do not apply any fading
 factor to attenuate errors throughout the stream.  We compute the F1 score in a
 one-versus-all fashion for each class, averaged across all classes
 (macro-average, code available
-\href{https://github.com/azazel7/paper-benchmark/blob/9adb1039c5a65a00a66d554f0e870d14d3fff7cb/main.cpp\#L82}{here}).
+\href{https://github.com/big-data-lab-team/benchmark-har-data-stream/blob/f314bf4a258e96e418e249228897d269c59cd522/src/main.cpp\#L81}{here}).
 When a class has not been encountered yet, its F1 score is ignored. We use the
 F1 score rather than the accuracy because the real data sets are imbalanced.
 
@@ -353,14 +355,14 @@ baseline.
 \subsection{Experimental Conditions \revision{and Reproducibility}}
 \revision{
 The code and datasets used in this study are available on Github at
-\url{https://github.com/azazel7/paper-benchmark}.
+\url{https://github.com/big-data-lab-team/benchmark-har-data-stream.git}.
 The repository contains the source code and data we used to run the experiment, including the Makefile to compile the benchmark, the Python script
  to organize the execution and plot the results, and the
 datasets. This experiment requires the following software to run properly. \TG{make a bullet list}
 \texttt{Git} to download the repository and its submodule. \texttt{gcc} or any
 C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
 The repetitions were executed with plain Python code and the plots
-were generated using \texttt{Seaborn}, \texttt{Matplotlib}, and \texttt{Pandas} \TG{check capitalization}.
+were generated using \texttt{seaborn}, \texttt{matplotlib}, and \texttt{pandas}.
 }
 
 \revision{
