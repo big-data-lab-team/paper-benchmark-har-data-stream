@@ -23,11 +23,23 @@ runtime, as all power consumptions were found comparable. The
 classifiers, with runtimes in the order of 0.35~ms/element, a performance not compatible 
 with common sampling frequencies of wearable sensors. 
 
-Future research \revision{should} focus on reducing the memory requirements and runtime
-of the \hoeffdingtree and the \mondrianforest classifiers. In addition to
-improving the deployability of these classifiers on connected objects, this
-would also potentially improve their classification performance, since
-memory remains a bottleneck in the \mondrianforest.
+
+\revision{
+In this work, we found that the tree-based classifiers were not design with
+memory constraint in mind. 
+Even though data stream classifiers were designed to minimize the memory
+footprint, they were not designed to work with a given memory budget. For
+instance, a device with one megabyte of main
+
+Par example, supposon une
+platform qui n'ai qu'un mega de RAM, il n'y a aucun garanti de fonctionnement
+pour HT or Mondrian. Dans le future, on va dev des algo capable de prévoir et de
+fonctionner avec une peak memory consumption. En particulier, nous prévoyons
+d'étudier l'échantillonage et la selection d'arbre selon des critère de conso
+émmoire et de performance de classification.
+In addition deploying classification algorithm on actual connected object might
+highligjt other relevant research direction.
+}
 
 \section*{Acknowledgement}
 This work was funded by a Strategic Project Grant of the Natural Sciences
