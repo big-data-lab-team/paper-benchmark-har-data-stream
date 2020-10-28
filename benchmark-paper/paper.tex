@@ -16,6 +16,7 @@
 \usepackage{float} %Used to force figure placement
 \usepackage{xspace} %Used in \banosdataset
 \usepackage{xcolor}
+\usepackage{soul}
 % Fix link colors
 \hypersetup{
     colorlinks = true,
@@ -44,10 +45,11 @@
 \newcommand{\har}[0]{HAR\xspace}
 \newcommand{\knn}[0]{\textit{k}-NN\xspace}
 \newcommand{\streamdmcpp}[0]{StreamDM-C++\xspace}
-\definecolor{revcolor}{RGB}{255,225,255}
-\newcommand{\revision}[1]{\colorbox{revcolor} {\parbox{\textwidth}{#1}}}
-
-
+\definecolor{revcolor}{RGB}{255,150,255}
+\sethlcolor{revcolor}
+\newcommand{\revision}[1]{
+		\textcolor{revcolor}{#1}
+}
 \Title{{A benchmark of data stream classification
 for human activity recognition
 on connected objects}}

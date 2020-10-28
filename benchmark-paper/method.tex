@@ -140,12 +140,28 @@ their parent prediction. A discount factor closer to one makes the prediction of
 a node closer to the prediction of its parent.  Finally, the budget controls the
 tree depth.
 
-Hyperparameters used for \mondrianforest are available in the
-\href{https://github.com/azazel7/paper-benchmark/blob/master/README.md}{repository
-readme}.  Additionally, the \mondrianforest is allocated with 600~KB of memory
+\revision{Hyperparameters used for \mondrianforest are shown in
+Table~\ref{tab:mondrian-parameters}}.  Additionally, the \mondrianforest is allocated with 600~KB of memory
 unless specified otherwise.  On the \banosdataset and \recofitdataset datasets,
 we also explore the \mondrianforest with 3~MB of memory in order to observe the
 effect of available memory on performances (classification, runtime, and power).
+
+\begin{table}
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Number of trees & Base count & Discount & Budget\\
+		\hline
+		1               & 0.0        & 1.0      & 1.0 \\
+		5               & 0.0        & 1.0      & 0.4 \\
+		10              & 0.0        & 1.0      & 0.4 \\
+		50              & 0.0        & 1.0      & 0.2 \\
+		\hline
+		\end{tabular}
+		\end{center}
+		\caption{\revision{Hyperparameters used for the \mondrianforest.}}
+		\label{tab:mondrian-parameters}
+\end{table}
 
 \subsubsection{Micro Cluster Nearest Neighbor~\cite{mc-nn}}
 The Micro Cluster Nearest Neighbor~(\mcnn) is a variant of k-nearest neighbors
@@ -177,11 +193,27 @@ of active clusters already reached the maximum defined by the user.
 \mcnn OrpailleCC has only one parameter, the error threshold after which a
 cluster is split.  \mcnn Origin has two parameters: the error threshold and the
 participation threshold. The participation threshold is the limit below which a
-cluster is removed.  Hyperparameters used for \mcnn are available in the
-\href{https://github.com/azazel7/paper-benchmark/blob/master/README.md}{repository
-readme}. Additionally, they both implementations have the cluster count as their
+cluster is removed. \revision{Hyperparameters used for \mcnn are shown in
+Table~\ref{tab:mcnn-parameters}}. Additionally, they both implementations have the cluster count as their
 last parameter.
 
+\begin{table}
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Number of clusters & Error threshold & Participation threshold \\
+		\hline
+		10                 & 2               & 10                      \\
+		20                 & 10              & 10                      \\
+		33                 & 16              & 10                      \\
+		40                 & 8               & 10                      \\
+		50                 & 2               & 10                      \\
+		\hline
+		\end{tabular}
+		\end{center}
+		\caption{\revision{Hyperparameters used for the \mcnn.}}
+		\label{tab:mcnn-parameters}
+\end{table}
 \subsubsection{Naïve Bayes~(\naivebayes)~\cite{naive_bayes}}
 The \naivebayes algorithm keeps a table of counters for each feature value and
 each label. During prediction, the algorithm assigns a score for each label
@@ -308,23 +340,48 @@ algorithms with the \textit{perf} command. The power measurement is done
 multiple times in a minimal environment. We use the empty classifier as a
 baseline.
 
-\subsection{Experimental Conditions \revision{and Requirements}}
-We automated our experiments with a Python script that defines classifiers and
-their parameters, randomizes all the repetitions, and plots the resulting data.
-The datasets and output results were stored in memory through a memfs filesystem
-mounted on \texttt{/tmp}, to reduce the impact of I/O time.  We averaged metrics
-across repetitions (same classifier, same parameters, and same dataset).
-
-The experiment was done with a single core of a cluster node with two Intel(R)
-Xeon(R) Gold 6130 CPUs and a main memory of 250G. \revision{The operating system of the
-node was Linux.}
+\subsection{Experimental Conditions \revision{and Reproducibility}}
+\revision{
+The code related to this study is available on Github
+(\href{https://github.com/azazel7/paper-benchmark}{here}).
+The repository contains all the source code we used to run the experiment. In
+particular, it contains the Makefile to compile the benchmark, the Python script
+we used to organize the execution and plot the results, and the
+datasets. This experiment requires the following software to run properly.
+\texttt{Git} to download the repository and its submodule. \texttt{gcc} or any
+C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
+The repetitions were organized with plain Python code and the plots
+were generated using \texttt{Seaborn}, \texttt{Matplotlib}, and \texttt{Panda}.
+}
 
 \revision{
-The experiment requires the following software to run properly. \textit{Git} to download
-the repository and its submodule. \textit{gcc} or any C++ compiler in combination with
-\textit{make} to compile the benchmark binaries and \streamdmcpp. The run were
-organized with plain Python code and the plots were generated using
-\textit{Seaborn}, \textit{Matplotlib}, and \textit{Panda}.
+The plotting script (\texttt{makefile.py}) extracts data from three CSV files:
+\texttt{models.csv}, \texttt{output\_runs}, and \texttt{output}.
+\texttt{models.csv} lists the combination of classifiers, datasets, and parameters
+that were run. This combination is called a model. The \texttt{output\_runs}
+file stores information about the model's repetition such as the runtime or the
+energy.  Finally, the \texttt{output} file contains the accuracy, the f1 score,
+and the memory footprint every fifty elements. Each line is identified with
+three ids: the model id, the repetition count, and the data point count in the
+dataset.
+}
+
+\revision{
+Through the README, we provided the commands to download, compile, and run the
+experiment. Additionally, we provided the command to plot the results.
+}
+
+\revision{
+During the benchmark execution, the datasets and output files were stored in
+memory through a memfs filesystem mounted on \texttt{/tmp}, to reduce the impact
+of I/O time.  We averaged metrics across repetitions (same classifier, same
+parameters, and same dataset).
+}
+
+\revision{
+The experiment was done with a single core of a cluster node with two Intel(R)
+Xeon(R) Gold 6130 CPUs and a main memory of 250G. The node was running a CentOS
+Linux 8 with the Linux kernel 4.18.
 }
 
 % vim: tw=80 ts=2
