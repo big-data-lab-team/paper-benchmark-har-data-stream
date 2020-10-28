@@ -93,7 +93,7 @@ and gyroscope) from one sensor.
 over the window as features. We assigned the most
 frequent label to the window.
 
-\subsubsection{MOA dataset}
+\subsubsection{MOA datasets}
 Massive Online Analysis~\cite{moa} (MOA) is a Java framework to compare
 data stream classifiers. In addition to classification algorithms, MOA provides many
 tools to read and generate datasets.
@@ -342,16 +342,15 @@ baseline.
 
 \subsection{Experimental Conditions \revision{and Reproducibility}}
 \revision{
-The code related to this study is available on Github
-(\href{https://github.com/azazel7/paper-benchmark}{here}).
-The repository contains all the source code we used to run the experiment. In
-particular, it contains the Makefile to compile the benchmark, the Python script
-we used to organize the execution and plot the results, and the
-datasets. This experiment requires the following software to run properly.
+The code and datasets used in this study are available on Github at
+\url{https://github.com/azazel7/paper-benchmark}.
+The repository contains the source code and data we used to run the experiment, including the Makefile to compile the benchmark, the Python script
+ to organize the execution and plot the results, and the
+datasets. This experiment requires the following software to run properly. \TG{make a bullet list}
 \texttt{Git} to download the repository and its submodule. \texttt{gcc} or any
 C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
-The repetitions were organized with plain Python code and the plots
-were generated using \texttt{Seaborn}, \texttt{Matplotlib}, and \texttt{Panda}.
+The repetitions were executed with plain Python code and the plots
+were generated using \texttt{Seaborn}, \texttt{Matplotlib}, and \texttt{Pandas} \TG{check capitalization}.
 }
 
 \revision{
@@ -360,15 +359,15 @@ The plotting script (\texttt{makefile.py}) extracts data from three CSV files:
 \texttt{models.csv} lists the combination of classifiers, datasets, and parameters
 that were run. This combination is called a model. The \texttt{output\_runs}
 file stores information about the model's repetition such as the runtime or the
-energy.  Finally, the \texttt{output} file contains the accuracy, the f1 score,
+energy.  Finally, the \texttt{output} file contains the accuracy, the F1 score,
 and the memory footprint every fifty elements. Each line is identified with
 three ids: the model id, the repetition count, and the data point count in the
 dataset.
 }
 
 \revision{
-Through the README, we provided the commands to download, compile, and run the
-experiment. Additionally, we provided the command to plot the results.
+Int the README, we provided the commands to download, compile, run the
+experiment, and plot the results.
 }
 
 \revision{
@@ -381,7 +380,7 @@ parameters, and same dataset).
 \revision{
 The experiment was done with a single core of a cluster node with two Intel(R)
 Xeon(R) Gold 6130 CPUs and a main memory of 250G. The node was running a CentOS
-Linux 8 with the Linux kernel 4.18.
+Linux 8 with Linux kernel 4.18.
 }
 
 % vim: tw=80 ts=2
