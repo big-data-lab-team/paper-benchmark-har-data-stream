@@ -24,15 +24,14 @@ classifiers, with runtimes in the order of 0.35~ms/element, a performance not co
 with common sampling frequencies of wearable sensors. 
 
 \revision{
-In this work, we found that the tree-based classifiers were not designed with
-memory constraints in mind. Even though data stream classifiers were developed
-to minimize the memory footprint, they were not developed to work with a given
+Our results show that even though data stream classifiers were developed
+to minimize memory footprint, they were not developed to work with a given
 memory budget. For instance, there is no guarantee that the \mondrianforest or
 the \hoeffdingtree would make the best split selection on a device with a
-megabyte of memory.  Future research should focus on developing algorithms that
-can handle a peak memory consumption and ensure an optimal response within a
-memory budget.  In particular, we will focus on sampling and tree selection
-following memory-based and performance-based criteria in \mondrianforest.  In
+small amount of memory. Future research could focus on developing algorithms that
+can guarantee a peak memory consumption and ensure an optimal response within a
+memory budget.  In particular, we are planning to explore tree sampling methods
+based on memory and performance criteria in \mondrianforest.  In
 addition, deploying classification algorithms on actual connected objects might
 highlight other relevant research directions.
 }

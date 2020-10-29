@@ -36,8 +36,8 @@ metrics and parameters used in our benchmark.
 
 \subsection{Datasets}
 \label{sec:method-dataset}
-\revision{These datasets are amongst the most common ones.  We selected the main two
-datasets used to evaluate \har from wearable sensors.  In addition, we used the
+\revision{To conduct our benchmark, we selected the main two
+datasets commonly used to evaluate \har from wearable sensors.  In addition, we used the
 popular MOA stream simulator to generate three synthetic datasets with different
 properties.}
 
@@ -117,11 +117,12 @@ classifiers.
 \subsection{Algorithms and Implementation}
 In this section, we describe the algorithms used in the benchmark, their
 hyperparameters, and relevant implementation details. 
-\revision{We selected two of the main algorithms in the popular streamDM
-library, \naivebayes and \hoeffdingtree. In addition, we selected representative
+\revision{We selected two of the main algorithms in the popular StreamDM
+library: \naivebayes and \hoeffdingtree. These algorithms are commonly found in 
+data stream classification studies. In addition, we selected representative
 algorithms from the main classfification approaches: the \mondrianforest for
 tree based-learning, Micro Cluster Nearest Neighbor for cluster based-learning,
-and Feedforward Neural Network for neural network.} 
+and a Feedforward Neural Network for neural networks.} 
 
 \subsubsection{Mondrian forest~(\mondrianforest)~\cite{mondrian2014}}
 Each tree in a \mondrianforest recursively splits the feature space, similar to
@@ -356,7 +357,7 @@ baseline.
 \revision{
 The code and datasets used in this study are available on Github at
 \url{https://github.com/big-data-lab-team/benchmark-har-data-stream.git}. We
-used the release 1.0 and the DOI is \href{https://doi.org/10.5281/zenodo.4148947}{10.5281/zenodo.4148947}.
+used release 1.0, available on Zenodo with DOI \href{https://doi.org/10.5281/zenodo.4148947}{10.5281/zenodo.4148947} for long-term archival.
 The repository contains the source code and data we used to run the experiment, including the Makefile to compile the benchmark, the Python script
  to organize the execution and plot the results, and the
 datasets. This experiment requires the following software to run properly.
@@ -365,7 +366,7 @@ datasets. This experiment requires the following software to run properly.
 		\item \texttt{gcc} or any C++ compiler in combination with \texttt{make} to compile the benchmark binaries.
 		\item \texttt{log4cpp} as a dependency of \streamdmcpp.
 		\item \texttt{Python}, \texttt{seaborn}, \texttt{matplotlib}, and
-				\texttt{pandas}, to organize the experiment and make the plots.
+				\texttt{pandas}, to run the experiment and plot the results.
 \end{itemize}
 }
 
@@ -382,7 +383,7 @@ dataset.
 }
 
 \revision{
-Int the README, we provided the commands to download, compile, run the
+In the README file, we provided the commands to download, compile, run the
 experiment, and plot the results.
 }
 
@@ -391,9 +392,6 @@ During the benchmark execution, the datasets and output files were stored in
 memory through a memfs filesystem mounted on \texttt{/tmp}, to reduce the impact
 of I/O time.  We averaged metrics across repetitions (same classifier, same
 parameters, and same dataset).
-}
-
-\revision{
 The experiment was done with a single core of a cluster node with two Intel(R)
 Xeon(R) Gold 6130 CPUs and a main memory of 250G. The node was running a CentOS
 Linux 8 with Linux kernel 4.18.
